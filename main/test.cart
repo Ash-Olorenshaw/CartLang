@@ -1,0 +1,93 @@
+
+argentina : int = 9;
+foo : int = 2;
+gamma : int = 1 + 0 + 99 - argentina * 2;
+//bongo = 0.5 + 0.2;
+yota : string = "hello" + " my friends " - "hello my " + "are the best!";
+print(gamma);
+//print(argentina);
+//print("hello! " + "this is a multipart" + " string being printed!");
+
+func add_one(val : int) {
+    return val + 1;
+}
+
+if (argentina == 9 && foo == 1) {
+    print("---- foo != 1");
+}
+
+if (argentina == 9 || foo == 1) {
+    print("---- foo != 1");
+}
+
+if (argentina == 9 || foo == 2) {
+    print("---- foo or == 2");
+}
+
+if (argentina == 9 && foo == 2) {
+    print("---- foo = 2");
+}
+
+if (argentina == 9) {
+    print("---- argentina = 9");
+    if (foo == 2)
+    {
+    	print("---- foo is also 2!");
+    	print("---- foo message again");
+    } 
+    print("---- huh, argentina = 9");
+}
+
+if (argentina == 10) {
+    print("---- argentina != 10");
+}
+
+for (char in "test") {
+    if (char == "t") {
+        print("---- given char (" + char + ") = t");
+    }
+}
+
+print("counting to 9");
+for (num -> 9) {
+    // same as for (num in 9)
+    // counts up ints out of nine
+    print(num);
+}
+
+goob : int = 0;
+
+while (goob < 5) {
+    print("goob = ");
+    print(goob);
+    goob = goob + 1;
+}
+
+tony : int = 10;
+tony += 20;
+print("tony: ");
+print(tony);
+
+
+while (argentina ~10 9) {
+    argentina += 1;
+    print("argentina = ");
+    print(argentina);
+}
+
+if (tony ~5 10) {
+    // within 5 ints of 10
+    print("---- tony!!!!");
+}
+elif (tony ~20 10)
+{
+    print("---- 
+    tony within 20");
+}
+
+
+delete tony;
+del goob;
+
+argentina = add_one(argentina);
+print(string.to_string(argentina) + " = argentina + 1");
