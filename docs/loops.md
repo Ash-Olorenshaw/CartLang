@@ -8,7 +8,7 @@
 goob : int = 0;
 
 while (goob < 5) {
-    goob = goob + 1;
+    goob += 1;
 }
 ```
 The code inside the `while` loop will run as long as the statement inside the brackets will evaluate `true`.

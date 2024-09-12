@@ -11,7 +11,7 @@ def interactive_interpret():
     line = ""
     quit_interactive = False
     while True:
-        temp_line = input(" ")
+        temp_line = input(">> ")
         if temp_line.strip() in ["exit", "quit", "end", "quit()", "exit()", "exit();"]:
             print("Err - line ignored. Did you mean 'quit();'?")
             continue

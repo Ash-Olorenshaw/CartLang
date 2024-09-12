@@ -11,7 +11,7 @@ A _very_ important thing of note, however, is how mathematics is done with CartL
 ```Odin
 1 + 3 * 4
 ```
-For CartLang, this expression will evaluate to 16 as it first calculates the addition before realising there is a multiplication operator.
+For CartLang, this expression will evaluate to `16` as it first calculates the addition before realising there is a multiplication operator.
 This can be circumvented, however, through a simple use of brackets:
 ```Odin
 1 + (3 * 4)

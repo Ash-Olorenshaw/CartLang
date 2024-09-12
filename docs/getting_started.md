@@ -9,12 +9,12 @@ For instance, comments in CartLang work like C:
 ```
 Aside from this, all lines also need a ';':
 
-```
+```Odin
 print("hello world");
 ```
 If you want something multiline, simply leave off the ';'!
 
-```
+```Odin
 print("hello 
 world!");
 ```
@@ -22,7 +22,7 @@ world!");
 ### Interactive Terminal Mode
 
 When running the CartLang interpreter you can run it in _Interactive Terminal Mode_ which can be useful for beginners. Designed to be a simple REPL mode, running it allows you to actively enter commands and see their affect immediately 
-(similar to Python's 'Interactive Shell/Session' or NodeJS's REPL mode). There are only two addition commands available in this mode when running it - `clear()` and `quit()`.
+(similar to Python's 'Interactive Shell/Session' or NodeJS's REPL mode). There are only two additional commands available in this mode when running it - `clear()` and `quit()`.
 
 When running in _Interactive Terminal Mode_ you can write your commands in as many lines as you like. For instance, `print("yes");` could be written like this:
 ```Odin
