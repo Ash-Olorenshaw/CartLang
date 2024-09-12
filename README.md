@@ -1,10 +1,12 @@
+<pre>
+
   _____         __  __                 
  / ___/__ _____/ /_/ /  ___ ____  ___ _
 / /__/ _ `/ __/ __/ /__/ _ `/ _ \/ _ `/
 \___/\_,_/_/  \__/____/\_,_/_//_/\_, / 
                                 /___/  
 pre-alpha 0.0.1
-
+</pre>
 ## Welcome to CartLang!
 A dumb interpreted language currently created with Python (hopefully will be rewritten in C/Odin in future).
 
