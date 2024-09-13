@@ -2,7 +2,7 @@ from default_functions.statements import Statements
 import globals
 from walking_tools.organisers import Organisers
 from walking_tools.dissectors import Dissectors
-from default_functions.assigment import Assignment
+from default_functions.assignment import Assignment
 from default_functions.functions import Functions
 from default_functions.loops import Loops
 
