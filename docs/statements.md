@@ -20,6 +20,14 @@ if (true) {
 In CartLang you can use all the typical operators for comparisons: `==`, `>`, `<`, `>=`, `<=`
 And also chain these with `||` and `&&`.
 
+These operators can also be negated with a `!` in front of them like so:
+```Odin
+if (foo !=> 10) {
+    print("foo < than 10")
+}
+```
+The `!=` opeartor does also exist for a not equals operation. However, as a side effect of the `!` capability you can also do `!!=` and `!==` which are bizarre alternatives to `==` and `!=` respectively.
+
 However, CartLang also introduces a new operator, the `circa operator`:  
 
 ```Odin
