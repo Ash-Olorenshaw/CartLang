@@ -31,6 +31,11 @@ class Assignment:
                     if type(rightItem) != bool:
                         print(f"Err - type bool does not match '{rightItem}'")
                         return skip_indexes, 400
+                case "array":
+                    if type(rightItem) != list:
+                        print(f"Err - type array ooes not match '{rightItem}'")
+                        return skip_indexes, 400
+
                 case _:
                     print(f"Err - type '{commands[2]}' is unknown")
                     return skip_indexes, 400
@@ -69,7 +74,7 @@ class Assignment:
         if assigner == "=":
             globals.variables[leftItem] = rightItem
         elif assigner == "+=":
-            if type(rightItem) in [str, int, float]:
+            if type(rightItem) in [str, int, float, list]:
                 globals.variables[leftItem] += rightItem
             else:
                 print(f"Err - Unable to perform operation {assigner} on type {type(rightItem)}")
@@ -77,14 +82,15 @@ class Assignment:
         elif assigner == "-=":
             if type(rightItem) in [int, float]:
                 globals.variables[leftItem] -= rightItem
-            elif type(rightItem) == str:
+            elif type(rightItem) == str or type(rightItem) == list:
                 var_val = globals.variables[leftItem]
-                if var_val[:len(var_val)] == rightItem:
+
+                if var_val[:len(rightItem)] == rightItem:
                     globals.variables[leftItem] = var_val[len(rightItem):]
-                elif var_val[len(var_val):] == rightItem:
-                    globals.variables[leftItem] = var_val[:len(rightItem)]
+                elif var_val[-len(rightItem):] == rightItem:
+                    globals.variables[leftItem] = var_val[:-len(rightItem)]
                 else:
-                    print(f"Err - unable to perform string deletion operation. String '{var_val}' does not contain '{rightItem}'")
+                    print(f"Err - unable to perform {type(rightItem)} deletion operation. {type(rightItem)} '{var_val}' does not contain '{rightItem}'")
                     return skip_indexes, 400
 
             else:

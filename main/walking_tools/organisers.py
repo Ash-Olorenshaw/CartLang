@@ -57,10 +57,11 @@ class Organisers:
         split_start = 0
         split_end = 0
         inside_string = False
+        inside_array = False
         char_index = 0
         split_expressions = []
         for char in expressions:
-            if char.isspace() and not prev_char_whitespace and not inside_string:
+            if char.isspace() and not prev_char_whitespace and not inside_string and not inside_array:
                 #print(f"{char} option 1")
                 prev_char_whitespace = True
                 split_end = char_index 
@@ -78,13 +79,17 @@ class Organisers:
                 split_end = char_index + 1
                 split_expressions.append(expressions[split_start:split_end])#[:-1])
             elif char == '"' and not inside_string:
-                #print(f"{char} option 4")
                 inside_string = True
                 split_start = char_index
             elif char == '"' and inside_string:
-                #print(f"{char} option 5")
                 inside_string = False 
                 split_end = char_index - 1
+            elif char == '[':
+                split_start = char_index
+                inside_array = True
+            elif char == ']':
+                split_end = char_index - 1
+                inside_array = False
             elif not char.isspace() and prev_char_whitespace:
                 #print(f"{char} option skip")
                 prev_char_whitespace = False
@@ -94,7 +99,6 @@ class Organisers:
                 #print(f"no operation performed on char {char} with prev_char_whitespace {prev_char_whitespace} and inside_string {inside_string}")
             char_index += 1
 
-        #print(f"finalised split_expressions: {split_expressions}")
         return split_expressions
 
     @staticmethod

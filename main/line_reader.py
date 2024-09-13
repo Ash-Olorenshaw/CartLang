@@ -1,5 +1,10 @@
 from default_functions.statements import Statements
 import globals
+from default_types.array_type import ArrayType
+from evaluator import Evaluator
+from default_types.float_type import FloatType
+from default_types.int_type import IntType
+from default_types.string_type import StringType
 from walking_tools.organisers import Organisers
 from walking_tools.dissectors import Dissectors
 from default_functions.assignment import Assignment
@@ -20,6 +25,14 @@ statements = {
         "if" : Statements.if_statement,
         "elif" : Statements.elif_statement,
         "else" : Statements.else_statement,
+}
+
+
+types = {
+        "array" : ArrayType.evaluate_array_func, 
+        "float" : FloatType.evaluate_float_func, 
+        "int" : IntType.evaluate_int_func,
+        "string" : StringType.evaluate_string_func, 
 }
 
 
@@ -94,6 +107,27 @@ def run_command(command, command_index, total_commands) -> tuple[int, list]:
                 return 400, []
             else:
                 return 200, skip
+
+        elif "." in commands[0].strip():
+            print(f"echo: {command.strip()}")
+            parts = command.strip().split(".")
+            if parts[0] in types:
+                print(f"testing {parts[0]}")
+
+                open_index = Organisers.find_first_char("(", parts[1].strip()) + 1
+                close_index = Organisers.find_first_char(")", parts[1].strip())
+
+                func_vars = Dissectors.create_variables(parts[1].strip()[open_index:close_index])
+                func_name = parts[1].strip()[:open_index - 1]
+
+                print(f"{parts[0]} calling {func_name} with {func_vars}")
+                types[parts[0]](func_name, func_vars)
+
+            else:
+                print(f"Err - type '{parts[0]}' is unknown.")
+                return 400, []
+
+        
 
     elif command.strip() not in ["{", "}", ";"] and not found:
         open_index = Organisers.find_first_char("(", command.strip()) + 1

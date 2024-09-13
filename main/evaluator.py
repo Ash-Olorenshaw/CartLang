@@ -1,3 +1,4 @@
+from default_types.array_type import ArrayType
 from type_conversions import Types
 from default_types.string_type import StringType
 from default_types.float_type import FloatType
@@ -10,7 +11,7 @@ import line_reader
 
 class Evaluator:
     @staticmethod
-    def evaluate_expression(expression : str, bracketted = False):
+    def evaluate_expression(expression : str, bracketted = False, var_names = False):
         #expressions = expression.split(" ")
         #expressions = collate_strings(expressions)
         if not bracketted:
@@ -80,16 +81,22 @@ class Evaluator:
                     elif dec_split_items[0] == "float":
                         func_return = FloatType.evaluate_float_func(func_name, func_vars)
                         temp_right = func_return
+                    elif dec_split_items[0] == "array":
+                        func_return = ArrayType.evaluate_array_func(func_name, func_vars)
+                        temp_right = func_return
+
 
 
 
                 elif exp in globals.variables:
-                    val = globals.variables[exp]
-                    temp_right = val
+                    if var_names:
+                        temp_right = exp
+                    else:
+                        val = globals.variables[exp]
+                        temp_right = val
 
-                    if not type(val) in [int, str, float]:
-                        print("wrong type")
-                        found_full_expression = True
+                        if not type(val) in [int, str, float, list]:
+                            found_full_expression = True
                 elif exp == "true":
                     temp_right = True
 
@@ -104,6 +111,26 @@ class Evaluator:
 
                 elif exp[0] == '"' and exp[-1] == '"':
                     temp_right = str(exp.strip('"'))
+
+                elif exp[0] == '[' and exp[-1] == ']':
+                    assert (type(exp) == str)
+                    exp = exp[1:-1]
+                    array_items = exp.split(",")
+                    array_items = [i.strip() for i in array_items]
+                    full_array = []
+                    array_type = None
+                    for item in array_items:
+                        evaluated_item = Evaluator.evaluate_expression(item, bracketted = True)
+                        if full_array == []:
+                            array_type = type(evaluated_item)
+                        else:
+                            if type(evaluated_item) != array_type:
+                                print(f"Err - array of type '{array_type}' does not match type '{type(evaluated_item)}' for item '{evaluated_item}'")
+                                break
+
+                        full_array.append(evaluated_item)
+
+                    temp_right = full_array
 
                 elif exp[0] == '(':
                     if exp[1] != ')':
@@ -187,14 +214,17 @@ class Evaluator:
                         print(f"Err - unsupported operation ({last_operator}) for float {exp}")
                         break
 
-                elif type(rightItem) == str and type(temp_right) == str:
+                elif (type(rightItem) == str and type(temp_right) == str) or (type(rightItem) == list and type(temp_right) == list):
+
                     if last_operator == "+":
                         rightItem = rightItem + temp_right
                     if last_operator == "-":
+                        
                         if rightItem[:len(temp_right)] == temp_right:
                             rightItem = rightItem[len(temp_right):]
-                        elif rightItem[len(temp_right):] == temp_right:
-                            rightItem = rightItem[:len(temp_right)]
+                        elif rightItem[-len(temp_right):] == temp_right:
+                            rightItem = rightItem[:-len(temp_right)]
+
                     elif Types.is_comparison_operator(last_operator):
                         pass
                 
