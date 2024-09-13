@@ -30,7 +30,7 @@ class Types:
 
     @staticmethod
     def is_comparison_operator(op : str):
-        if op in ["&&", "||", "==", "!=", ">=", "<=", ">", "<"] or "~" in op:
+        if op in ["&&", "||", "==", "!=", ">=", "<=", ">", "<"] or "~" in op or "!" == op[0]:
             return True
         else:
             return False
@@ -42,7 +42,7 @@ class Types:
         returns True if the item supplied doesn't exist.
         """
         try:
-            if item not in ["+", "-", "&&", "*", "/", "%", ":", "||", "==", "!=", ">=", "<=", ">", "<"] and "~" not in item:
+            if item not in ["+", "-", "&&", "*", "/", "%", ":", "||", "==", "!=", ">=", "<=", ">", "<"] and "~" not in item and "!" != item[0]:
                 next_expression = Types.convert_to_correct_type(item)
                 if next_expression == None:
                     return True

@@ -15,7 +15,7 @@ class Loops:
         command = " ".join(commands)
 
         if commands[2] != "in" and commands[2] != "->":# in command.strip():
-            print(f"Err - malformed line {command.strip()}. Unable to find 'for' or '->' in 'for' loop.")
+            print(f"Err - malformed line {command.strip()}. Unable to find 'in' or '->' in 'for' loop.")
             return skip_indexes, 400
         
         globals.variables[commands[1][1:]] = None

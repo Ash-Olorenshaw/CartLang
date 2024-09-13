@@ -26,7 +26,7 @@ class Evaluator:
         skip_indexes = []
         exp_index = 0
 
-        #print(f"expression: {expressions}")
+        #print(f"evaling expression: {expressions}")
         if "||" in expressions or "&&" in expressions:
             #print(f"multi_store set to []")
             multi_store = []
@@ -37,13 +37,14 @@ class Evaluator:
                 continue
 
             temp_right = None
-            #print(f"processings {exp}")
+            #print(f"processing {exp}")
             if found_full_expression:
                 print(f"Err - expression is not comprehendable - contains too many arguments.")
                 break
 
-            if exp not in ["+", "-", "&&", "*", "/", "%", ":", "||", "==", "!=", ">=", "<=", ">", "<"] and not "~" in exp and multi_store == None:
+            if exp not in ["+", "-", "&&", "*", "/", "%", ":", "||", "==", "!=", ">=", "<=", ">", "<"] and not "~" in exp and multi_store == None and not exp[0] == "!":
                 try:
+                    #print("check_next_item")
                     found_full_expression = Types.check_next_item(expressions[exp_index + 1])
                 except IndexError as e:
                     pass
@@ -87,6 +88,7 @@ class Evaluator:
                     temp_right = val
 
                     if not type(val) in [int, str, float]:
+                        print("wrong type")
                         found_full_expression = True
                 elif exp == "true":
                     temp_right = True
@@ -204,18 +206,22 @@ class Evaluator:
                 if not found_full_expression:
                     #print(f"multi_store = {multi_store}")
                     if multi_store == None:
-                        if exp in ["==", "!=", ">=", "<=", ">", "<"] or "~" in exp:
+                        if exp in ["==", "!=", ">=", "<=", ">", "<"] or "~" in exp or exp[0] == "!":
                             try:
+                                #print("trying to compare")
                                 compare = Comparator.perform_comparison(expressions[exp_index - 1], exp, expressions[exp_index + 1])
                                 if compare == 0:
                                     multi_store = [False]
                                 elif compare == 1:
                                     multi_store = [True]
+
+                                #print(f"compare = {compare}")
                             except:
-                                pass
+                                print("Err - panic!")
                         else:
                             last_operator = exp
                     else:
+                        #print("else")
                         if exp in ["||", "&&"]:
                             try:
                                 if expressions[exp_index + 2] in ["||", "&&"]:
@@ -227,10 +233,9 @@ class Evaluator:
                             except:
                                 pass
                             last_operators.append(exp)
-                        elif exp in ["==", "!=", ">=", "<=", ">", "<"] or "~" in exp:
+                        elif exp in ["==", "!=", ">=", "<=", ">", "<"] or "~" in exp or exp[0] == "!":
                             #print(f"performing comparison {expressions[exp_index - 1] + exp + expressions[exp_index + 1]}")
                             compare = Comparator.perform_comparison(expressions[exp_index - 1], exp, expressions[exp_index + 1])
-                            #print(f"comparison resulted in {compare}")
 
                             if compare == -1:
                                 comparitive_expression = " ".join(expressions[(exp_index-2):exp])
