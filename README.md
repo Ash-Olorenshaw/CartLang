@@ -16,14 +16,19 @@ Check out the `docs` directory for getting started with understanding the langua
 
 Simply clone this repo somewhere then:
 
-```
+```nu-script
 cd main
 ```
 
 then:
 
-```
+*nix OSs:
+```nu-script
 python3 cart.py -h
+```
+Windows:
+```nu-script
+py cart.py -h
 ```
 
 This project also comes with two example CartLang files that you can try and sift through:
