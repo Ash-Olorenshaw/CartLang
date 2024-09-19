@@ -59,12 +59,14 @@ class Types:
         if "." in item:
             try: val = float(item)
             except: pass
-        elif item in globals.variables:
-            val = globals.variables[item]
-        elif item.isdigit():
-            val = int(item)
-        elif item[0] == '"' and item[-1] == '"':
-            val = str(item[1:-1])
+
+        if val == None:
+            if item in globals.variables:
+                val = globals.variables[item]
+            elif item.isdigit():
+                val = int(item)
+            elif item[0] == '"' and item[-1] == '"':
+                val = str(item[1:-1])
 
 
         return val

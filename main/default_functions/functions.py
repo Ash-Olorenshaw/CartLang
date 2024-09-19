@@ -42,7 +42,7 @@ class Functions:
     def return_val(commands, command_index, program_commands) -> tuple[list, int]:
         #command = commands[command_index]
         command = " ".join(commands)
-        print(f"command = {command} and inside_function {globals.inside_function}")
+        #print(f"command = {command} and inside_function {globals.inside_function}")
         if globals.inside_function:
             globals.variables["$#" + globals.inside_function] = Evaluator.evaluate_expression(command.strip()[7:].strip())
 

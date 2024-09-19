@@ -1,3 +1,5 @@
+open "importing_dir_test/example.cart";
+
 
 argentina : int = 9;
 foo : int = 2;
@@ -91,3 +93,5 @@ del goob;
 
 argentina = add_one(argentina);
 print(string.to_string(argentina) + " = argentina + 1");
+
+print(horrible);

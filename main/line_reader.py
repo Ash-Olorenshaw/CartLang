@@ -5,6 +5,7 @@ from evaluator import Evaluator
 from default_types.float_type import FloatType
 from default_types.int_type import IntType
 from default_types.string_type import StringType
+from default_functions.imports import Imports
 from walking_tools.organisers import Organisers
 from walking_tools.dissectors import Dissectors
 from default_functions.assignment import Assignment
@@ -25,6 +26,7 @@ statements = {
         "if" : Statements.if_statement,
         "elif" : Statements.elif_statement,
         "else" : Statements.else_statement,
+        "open" : Imports.import_file,
 }
 
 

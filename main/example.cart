@@ -1,4 +1,6 @@
-if (true !== true) 
+horrible : int = 999;
+
+if (true == true) 
 {
     print(5 * (2 + 1));
 }
