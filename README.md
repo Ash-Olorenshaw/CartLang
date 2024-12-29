@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <pre>
 
   _____         __  __                 
