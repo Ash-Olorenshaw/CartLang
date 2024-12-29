@@ -2,9 +2,9 @@
 pre-alpha 0.0.1
 
 ## Welcome to ShepLang!
-A dumb interpreted language currently created with Python (currently in the process of being rewritten in C/Odin).
-
 > formerly known as "CartLang"
+
+A dumb interpreted language currently created with Python (currently in the process of being rewritten in C/Odin).
 
 Check out the `docs` directory for getting started with understanding the language!
 
@@ -20,11 +20,11 @@ then:
 
 *nix OSs:
 ```nu-script
-python3 cart.py -h
+python3 shep.py -h
 ```
 Windows:
 ```nu-script
-py cart.py -h
+py shep.py -h
 ```
 
 This project also comes with two example ShepLang files that you can try and sift through:
