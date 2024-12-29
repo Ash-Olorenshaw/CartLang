@@ -1,5 +1,3 @@
-open "importing_dir_test/example.cart";
-
 
 argentina : int = 9;
 foo : int = 2;
@@ -11,6 +9,7 @@ print(gamma);
 //print("hello! " + "this is a multipart" + " string being printed!");
 
 func add_one(val : int) {
+    val = val + 1;
     return val + 1;
 }
 

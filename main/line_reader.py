@@ -75,7 +75,7 @@ def process_lines(lines : list, inside_function = ""):
 
         command_index += 1
 
-def run_command(command, command_index, total_commands) -> tuple[int, list]:
+def run_command(command : str, command_index : int, total_commands : list) -> tuple[int, list]:
     commands = command.strip().split(" ")
     found = False
     #print(f"running {command}")
