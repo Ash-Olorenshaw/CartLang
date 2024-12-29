@@ -27,7 +27,7 @@ for (num in 9) {
 
 `for` loops can be run with iterables or integers to loop through. If provided with an integer the associated variable will start as 0 and then repeat for the size of the provided integer (the above statement will provide a count from 0 - 8).
 
-CartLang does not currently include arrays or lists, but you can also iterate over strings:
+ShepLang does not currently include arrays or lists, but you can also iterate over strings:
 ```Odin
 for (c in "yes") {
     print(c);

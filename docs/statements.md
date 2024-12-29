@@ -1,6 +1,6 @@
 ## Statements
 
-There are all the classic statements in CartLang, as follows:
+There are all the classic statements in ShepLang, as follows:
 
 ### if
 
@@ -17,7 +17,7 @@ if (true) {
     print("yes!")
 }
 ```
-In CartLang you can use all the typical operators for comparisons: `==`, `>`, `<`, `>=`, `<=`
+In ShepLang you can use all the typical operators for comparisons: `==`, `>`, `<`, `>=`, `<=`
 And also chain these with `||` and `&&`.
 
 These operators can also be negated with a `!` in front of them like so:
@@ -28,7 +28,7 @@ if (foo !=> 10) {
 ```
 The `!=` opeartor does also exist for a not equals operation. However, as a side effect of the `!` capability you can also do `!!=` and `!==` which are bizarre alternatives to `==` and `!=` respectively.
 
-However, CartLang also introduces a new operator, the `circa operator`:  
+However, ShepLang also introduces a new operator, the `circa operator`:  
 
 ```Odin
 if (foo ~5 10) {

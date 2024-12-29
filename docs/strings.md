@@ -1,6 +1,6 @@
 ## Strings
 
-Strings in CartLang are pretty simple. They are declared as follows:
+Strings in ShepLang are pretty simple. They are declared as follows:
 ```Odin
 foo : string = "hello";
 ```
@@ -11,11 +11,11 @@ foo : string = "hello
     world this 
     is 
     a multiline 
-    CartLang 
+    ShepLang 
     string!";
 ```
 
-### Strings in CartLang are also compatible with `-` and `+` operators:  
+### Strings in ShepLang are also compatible with `-` and `+` operators:  
 Addition simply combines the two strings:  
 
 ```Odin

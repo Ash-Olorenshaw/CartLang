@@ -1,17 +1,17 @@
 ## Ints
 
-Integers in CartLang are like every other language. Declare them like this:
+Integers in ShepLang are like every other language. Declare them like this:
 
 ```Odin
 foo : int = 0;
 ```
 
-A _very_ important thing of note, however, is how mathematics is done with CartLang. CartLang is a very basic interpreter, it does not recognise things ahead in a mathematical statement. For instance:
+A _very_ important thing of note, however, is how mathematics is done with ShepLang. ShepLang is a very basic interpreter, it does not recognise things ahead in a mathematical statement. For instance:
 
 ```Odin
 1 + 3 * 4
 ```
-For CartLang, this expression will evaluate to `16` as it first calculates the addition before realising there is a multiplication operator.
+For ShepLang, this expression will evaluate to `16` as it first calculates the addition before realising there is a multiplication operator.
 This can be circumvented, however, through a simple use of brackets:
 ```Odin
 1 + (3 * 4)

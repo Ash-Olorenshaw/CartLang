@@ -1,8 +1,8 @@
 ## Getting Started
 
-The syntax for CartLang is heavily inspired by both C and Python. Generally sticking to the rules of those languages won't steer you too wrong.
+The syntax for ShepLang is heavily inspired by both C and Python. Generally sticking to the rules of those languages won't steer you too wrong.
 
-For instance, comments in CartLang work like C:  
+For instance, comments in ShepLang work like C:  
 
 ```Odin
 // this is a comment!
@@ -21,7 +21,7 @@ world!");
 
 ### Interactive Terminal Mode
 
-When running the CartLang interpreter you can run it in _Interactive Terminal Mode_ which can be useful for beginners. Designed to be a simple REPL mode, running it allows you to actively enter commands and see their affect immediately 
+When running the ShepLang interpreter you can run it in _Interactive Terminal Mode_ which can be useful for beginners. Designed to be a simple REPL mode, running it allows you to actively enter commands and see their affect immediately 
 (similar to Python's 'Interactive Shell/Session' or NodeJS's REPL mode). There are only two additional commands available in this mode when running it - `clear()` and `quit()`.
 
 When running in _Interactive Terminal Mode_ you can write your commands in as many lines as you like. For instance, `print("yes");` could be written like this:
@@ -40,12 +40,12 @@ This is where `clear()` comes into effect, if you make a mistake in your multili
 
 ### Datatypes
 
-CartLang only contains the following Datatypes at the moment:
+ShepLang only contains the following Datatypes at the moment:
 
 `string`, `int`, `float`
 
 ### Variables
-Variables in CartLang are declared as follows:
+Variables in ShepLang are declared as follows:
 ```Odin
 foo : int = 0;
 ```
@@ -65,7 +65,7 @@ foo += 2;
 ```
 These assignments **NEED** to have spaces between them to work. They will not work if truncated.  
 
-#### All variables in CartLang are _full scope_ - this includes variables created _inside loops_! 
+#### All variables in ShepLang are _full scope_ - this includes variables created _inside loops_! 
 
 If you want to deallocate a variable after using it (or perhaps you simply want to reassign it with a new type) you can use either the `del` or `delete` statements:
 
@@ -73,7 +73,7 @@ If you want to deallocate a variable after using it (or perhaps you simply want 
 foo : int = 0;
 del foo;
 
-// both del and delete act the same in CartLang
+// both del and delete act the same in ShepLang
 bar : string = "a";
 delete bar;
 

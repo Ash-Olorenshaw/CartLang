@@ -1,6 +1,6 @@
 ## Floats
 
-Floats in CartLang are like every other language. Declare them like this:
+Floats in ShepLang are like every other language. Declare them like this:
 
 ```Odin
 foo : float = 0;

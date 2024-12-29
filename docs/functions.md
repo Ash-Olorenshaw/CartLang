@@ -1,6 +1,6 @@
 ## Functions
 
-Functions in CartLang are pretty much like C or Python. You can declare one like this:
+Functions in ShepLang are pretty much like C or Python. You can declare one like this:
 
 ```Java
 func add_one(val : int) {
